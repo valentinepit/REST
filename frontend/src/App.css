@@ -27,6 +27,35 @@
 .App-link {
   color: #61dafb;
 }
+:root {
+  --mainDark: #343a40;
+  --mainGray: rgba(109, 109, 109);
+  --mainLightGray: rgba(172, 172, 172);
+  --mainWhite: #fff;
+  --mainBlue: #007bff;
+}
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
+.main-container{
+  height: 100%;
+}
+
+.flex-container{
+  display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content {
+  flex: 1 1 auto;
+}
+
 
 @keyframes App-logo-spin {
   from {
