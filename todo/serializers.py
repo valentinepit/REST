@@ -1,11 +1,9 @@
-from rest_framework import serializers
 from rest_framework.serializers import HyperlinkedModelSerializer
 
 from todo.models import Project, Todo
 
 
-class ProjectModelSerializer(serializers.HyperlinkedModelSerializer):
-    # users = serializers.StringRelatedField(many=True)
+class ProjectModelSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = Project
