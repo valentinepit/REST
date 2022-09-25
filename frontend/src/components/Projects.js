@@ -1,31 +1,15 @@
 import React from 'react'
-
-
-const ProjectItem = ({project}) => {
-    return (
-        <tr>
-            <td>
-                {project.name}
-            </td>
-            <td>
-                {project.users}
-            </td>
-            <td>
-                {project.repository}
-            </td>
-        </tr>
-    )
-}
+import ProjectItem from "./ProjectItem";
+import {Link} from 'react-router-dom';
 
 const ProjectList = ({projects}) => {
     return (
         <div className="content">
             <table>
-                <th>Firs Name</th>
-                <th>Last Name</th>
-                <th>E-mail</th>
-                {/*<div>{{ projects }}</div>*/}
-                {/*{projects.map((item) => <ProjectItem project={item}/>)}*/}
+                <th>Name </th>
+                <th>Users</th>
+                <th>Repository</th>
+                {projects.map((item) => <ProjectItem project={item}/>)}
             </table>
         </div>
     )
