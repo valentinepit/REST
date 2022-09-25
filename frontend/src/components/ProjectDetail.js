@@ -4,11 +4,11 @@ import ProjectItem from "./ProjectItem";
 
 const ProjectDetail = ({projects}) => {
     let {projectId} = useParams()
-    let filter_projects = projects.filter((project) => project.id = projectId)
+    console.log(projects)
+    let filter_projects = projects.filter((project) => project.id === parseInt(projectId))
     return (
         <div className="content">
             <table>
-                <h1>JJJJ{projectId}</h1>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Users</th>

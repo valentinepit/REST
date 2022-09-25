@@ -63,7 +63,7 @@ class App extends react.Component {
                         <Route index='/' element={<UserList users={this.state.users}/>}/>
                         <Route exact path='/projects' element={<ProjectList projects={this.state.projects}/>}/>
                         {/*<Route index='/' element={<ProjectList projects={this.state.projects}/>}/>*/}
-                        <Route exact path='/project_detail/:projectId' element={<ProjectDetail projects_detail={this.state.projects_detail}/>}/>
+                        <Route exact path='/projects/:projectId' element={<ProjectDetail projects={this.state.projects}/>}/>
                         <Route exact path='/todo' element={<TodoList todo={this.state.todo}/>}/>
                         <Route path='*' element={<NotFound404/>}/>
                     </Routes>
