@@ -11,6 +11,7 @@ import {Route, Link, BrowserRouter, Routes} from 'react-router-dom';
 import NotFound404 from "./components/NotFound404";
 import TodoList from "./components/Todo";
 import ProjectDetail from "./components/ProjectDetail";
+import TodoFilter from "./components/Todo_detail";
 
 
 class App extends react.Component {
@@ -62,9 +63,10 @@ class App extends react.Component {
                     <Routes>
                         <Route index='/' element={<UserList users={this.state.users}/>}/>
                         <Route exact path='/projects' element={<ProjectList projects={this.state.projects}/>}/>
-                        {/*<Route index='/' element={<ProjectList projects={this.state.projects}/>}/>*/}
-                        <Route exact path='/projects/:projectId' element={<ProjectDetail projects={this.state.projects}/>}/>
+                        <Route exact path='/projects/:projectId'
+                               element={<ProjectDetail projects={this.state.projects}/>}/>
                         <Route exact path='/todo' element={<TodoList todo={this.state.todo}/>}/>
+                        <Route exact path='/todo/:todoId' element={<TodoFilter notes={this.state.todo}/>}/>
                         <Route path='*' element={<NotFound404/>}/>
                     </Routes>
                     <Footer/>

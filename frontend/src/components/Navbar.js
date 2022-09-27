@@ -20,7 +20,8 @@ function Navbar() {
                         <ul className="navbar-nav m-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="nav-link text-white ms-5  active" aria-current="page" to='/'>
-                                    USERS&nbsp;<i className="fa-solid fa-house-user"></i>
+                                    <i className="fa-solid fa-house-user"></i>
+                                    USERS&nbsp;
                                 </Link>
                             </li>
                             <li className="nav-item">

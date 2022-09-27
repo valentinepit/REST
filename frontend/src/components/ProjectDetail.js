@@ -4,7 +4,6 @@ import ProjectItem from "./ProjectItem";
 
 const ProjectDetail = ({projects}) => {
     let {projectId} = useParams()
-    console.log(projects)
     let filter_projects = projects.filter((project) => project.id === parseInt(projectId))
     return (
         <div className="content">
