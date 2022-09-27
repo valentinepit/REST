@@ -21,9 +21,9 @@ const UserList = ({users}) => {
     return (
         <div className="content">
             <table>
-                <th>Firs Name</th>
-                <th>Last Name</th>
-                <th>E-mail</th>
+                <th className="components">Firs Name</th>
+                <th className="components">Last Name</th>
+                <th className="components">E-mail</th>
                 {users.map((item) => <UserItem user={item}/>)}
             </table>
         </div>
