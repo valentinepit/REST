@@ -69,7 +69,7 @@ class App extends react.Component {
                         <Route exact path='/todo/:todoId' element={<TodoFilter notes={this.state.todo}/>}/>
                         <Route path='*' element={<NotFound404/>}/>
                     </Routes>
-                    <Footer/>
+                    <Footer projects={this.state.projects}/>
                 </div>
             </BrowserRouter>
         )

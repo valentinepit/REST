@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from "styled-components";
+import ProjectList from "./ProjectList";
 
 
-function Footer() {
+function Footer({projects}) {
     return (
         <FooterContainer className="main-footer">
             <div className="footer-middle">
@@ -21,10 +22,7 @@ function Footer() {
                         <div className="col-md-3 col-sm-6">
                             <h4>Our Projects</h4>
                             <ul className="list-unstyled">
-                                <li><a href="/">Lorem ipsum.</a></li>
-                                <li><a href="/">Lorem ipsum.</a></li>
-                                <li><a href="/">Lorem ipsum.</a></li>
-                                <li><a href="/">Lorem ipsum.</a></li>
+                                {projects.map((item) => <ProjectList project={item}/>)}
                             </ul>
                         </div>
                         {/* Column 3*/}
