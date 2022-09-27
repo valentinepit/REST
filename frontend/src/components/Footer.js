@@ -19,7 +19,7 @@ function Footer() {
                         </div>
                         {/* Column 2*/}
                         <div className="col-md-3 col-sm-6">
-                            <h4>Column</h4>
+                            <h4>Our Projects</h4>
                             <ul className="list-unstyled">
                                 <li><a href="/">Lorem ipsum.</a></li>
                                 <li><a href="/">Lorem ipsum.</a></li>
@@ -29,7 +29,7 @@ function Footer() {
                         </div>
                         {/* Column 3*/}
                         <div className="col-md-3 col-sm-6">
-                            <h4>Column</h4>
+                            <h4>Company Life</h4>
                             <ul className="list-unstyled">
                                 <li><a href="/">Lorem ipsum.</a></li>
                                 <li><a href="/">Lorem ipsum.</a></li>
@@ -39,7 +39,7 @@ function Footer() {
                         </div>
                         {/* Column 4*/}
                         <div className="col-md-3 col-sm-6">
-                            <h4>Column</h4>
+                            <h4>Meet us in SN</h4>
                             <ul className="list-unstyled">
                                 <li><a href="/">Lorem ipsum.</a></li>
                                 <li><a href="/">Lorem ipsum.</a></li>
