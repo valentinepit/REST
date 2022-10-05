@@ -29,6 +29,7 @@ class App extends react.Component {
     }
 
     logout() {
+        console.log("HHHHHHHHHHHHHHHH")
         this.set_token("")
         this.setState({"users": []})
         this.setState({"projects": []})
@@ -46,7 +47,7 @@ class App extends react.Component {
         return headers
     }
 
-    function is_auth() {
+    is_auth() {
         return !! this.state.token
     }
 
@@ -127,4 +128,4 @@ class App extends react.Component {
     }
 }
 
-export default App;
+export default App
