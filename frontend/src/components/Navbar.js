@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../notes_logo.svg';
 import {Link} from 'react-router-dom';
+import is_auth from "../App";
 
 
 function Navbar() {
@@ -28,8 +29,11 @@ function Navbar() {
                                 <Link className="nav-link text-white ms-5" to='/todo'>TODO</Link>
                             </li>
                             <li className="nav-item">
-                                {/*<a className="nav-link text-white ms-5" href="#">USERS</a>*/}
                                 <Link className="nav-link text-white ms-5" to='/projects'>PROJECTS</Link>
+                            </li>
+                            <li className="nav-item">
+                                {is_auth() ? <Link className="nav-link text-white ms-5" to='/logut'>LOGOUT</Link> :
+                                    <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>}
                             </li>
 
                         </ul>
