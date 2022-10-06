@@ -35,20 +35,10 @@ function Navbar({auth, logout}) {
                             <li className="nav-item">
                                 {auth.is_auth ?
                                     <Link className="nav-link text-white ms-5" onClick={logout}
-                                          to="/login">LOGOUT</Link> :
+                                          to="/login">{auth.username}</Link> :
                                     <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>
                                 }
                             </li>
-                            {auth.is_auth ?
-                                <li>
-                                    <Link className="nav-link text-white ms-5" to=''>{auth.username}</Link>}
-                                </li>:
-                                <li>
-                                    <Link className="nav-link text-white ms-5" style={display_none}
-                                          to=''>{auth.username}</Link>}
-                                </li>
-                            }
-
                         </ul>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search"
