@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from '../notes_logo.svg';
 import {Link} from 'react-router-dom';
+import is_auth from "../App";
+import logout from "../App";
+
 
 
 function Navbar() {
@@ -20,15 +23,20 @@ function Navbar() {
                         <ul className="navbar-nav m-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="nav-link text-white ms-5  active" aria-current="page" to='/'>
-                                    USERS&nbsp;<i className="fa-solid fa-house-user"></i>
+                                    <i className="fa-solid fa-house-user"></i>
+                                    USERS&nbsp;
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link text-white ms-5" to='/todo'>TODO</Link>
                             </li>
                             <li className="nav-item">
-                                {/*<a className="nav-link text-white ms-5" href="#">USERS</a>*/}
                                 <Link className="nav-link text-white ms-5" to='/projects'>PROJECTS</Link>
+                            </li>
+                            <li className="nav-item">
+                                {is_auth ?
+                                    <Link className="nav-link text-white ms-5" onClick={logout} to="/login">LOGOUT</Link> :
+                                    <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>}
                             </li>
 
                         </ul>

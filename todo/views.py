@@ -10,10 +10,14 @@ from todo.serializers import ProjectModelSerializer, TodoModelSerializer
 from .filters import ProjectFilter
 
 
+class ProjectLimitOffsetPagination(LimitOffsetPagination):
+    default_limit = 4
+
 class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
     filterset_class = ProjectFilter
+    pagination_class = ProjectLimitOffsetPagination
 
 
 class TodoLimitOffsetPagination(LimitOffsetPagination):
