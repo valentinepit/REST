@@ -3,9 +3,9 @@ import logo from '../notes_logo.svg';
 import {Link} from 'react-router-dom';
 
 
-
 function Navbar({auth, logout}) {
     console.log("USERNAME =", auth)
+    let display_none = {"display": "none"}
     return (
         <div className="header">
             <nav className="navbar navbar-expand-lg bg-dark">
@@ -34,9 +34,20 @@ function Navbar({auth, logout}) {
                             </li>
                             <li className="nav-item">
                                 {auth.is_auth ?
-                                    <Link className="nav-link text-white ms-5" onClick={logout} to="/login">LOGOUT</Link> :
-                                    <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>}
+                                    <Link className="nav-link text-white ms-5" onClick={logout}
+                                          to="/login">LOGOUT</Link> :
+                                    <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>
+                                }
                             </li>
+                            {auth.is_auth ?
+                                <li>
+                                    <Link className="nav-link text-white ms-5" to=''>{auth.username}</Link>}
+                                </li>:
+                                <li>
+                                    <Link className="nav-link text-white ms-5" style={display_none}
+                                          to=''>{auth.username}</Link>}
+                                </li>
+                            }
 
                         </ul>
                         <form className="d-flex" role="search">
