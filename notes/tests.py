@@ -40,20 +40,33 @@ class TestProjects(APITestCase):
     def setUp(self):
         self.url = "/api/projects/"
         self.user_dict = {"username": "JohnDoe", "first_name": "John", "last_name": "Doe", "email": "mail@mail.com"}
+        self.user_new = {"username": "JaneDoe", "first_name": "Jane", "last_name": "Doe", "email": "jane@mail.com"}
         self.user = User.objects.create_user(**self.user_dict)
         self.project_dict = {"name": "Bla-bla-bla",  "repository": "mail.mail.com"}
+        self.project_fake = {"name": "Fake",  "repository": "deepfake.mail.com"}
         self.project = Project.objects.create(**self.project_dict)
+
         self.project.users.add(self.user)
+        self.todo_dict = {
+            "text": "text",
+            "is_active": False
+        }
         self.format = "json"
         self.username = "user_admin"
         self.password = "adminpassword"
         self.admin = User.objects.create_superuser(username=self.username, password=self.password)
 
-    def test_testcase_get_detail(self):
+    def test_testcase_get_list(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-
+    def test_mixer(self):
+        user = mixer.blend(User)
+        self.client.force_login(user=self.admin)
+        response = self.client.put(f"/api/users/{user.id}/", self.user_new)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        user.refresh_from_db()
+        self.assertEqual(user.first_name, self.user_new.get("first_name"))
 
     def tearDown(self):
         pass
