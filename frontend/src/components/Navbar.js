@@ -1,12 +1,11 @@
 import React from 'react';
 import logo from '../notes_logo.svg';
 import {Link} from 'react-router-dom';
-import is_auth from "../App";
-import logout from "../App";
 
 
-
-function Navbar() {
+function Navbar({auth, logout}) {
+    console.log("USERNAME =", auth)
+    let display_none = {"display": "none"}
     return (
         <div className="header">
             <nav className="navbar navbar-expand-lg bg-dark">
@@ -34,11 +33,12 @@ function Navbar() {
                                 <Link className="nav-link text-white ms-5" to='/projects'>PROJECTS</Link>
                             </li>
                             <li className="nav-item">
-                                {is_auth ?
-                                    <Link className="nav-link text-white ms-5" onClick={logout} to="/login">LOGOUT</Link> :
-                                    <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>}
+                                {auth.is_auth ?
+                                    <Link className="nav-link text-white ms-5" onClick={logout}
+                                          to="/login">{auth.username}</Link> :
+                                    <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>
+                                }
                             </li>
-
                         </ul>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search"

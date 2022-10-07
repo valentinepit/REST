@@ -25,6 +25,7 @@ class App extends react.Component {
             "todo": [],
             "projectDetail": [],
             "token": "",
+            "auth": {"username": "", "is_auth": false}
         }
     }
 
@@ -34,21 +35,24 @@ class App extends react.Component {
         this.setState({"users": []})
         this.setState({"projects": []})
         this.setState({"todo": []})
+        this.setState({"auth.username": ""})
+        this.setState({'auth': {username: "PIT", is_auth: false}})
+
 
     }
 
-    set_headers(){
+    set_headers() {
         let headers = {
             'Content-Type': "application/json"
         }
-        if (this.is_auth()){
+        if (this.is_auth()) {
             headers["Authorization"] = "Token " + this.state.token
         }
         return headers
     }
 
     is_auth() {
-        return !! this.state.token
+        return !!this.state.token
     }
 
     set_token(token) {
@@ -65,9 +69,15 @@ class App extends react.Component {
 
     get_token(username, password) {
         const data = {username: username, password: password}
-        axios.post("http://127.0.0.1:8000/api-token/", data).then(response => {
-            this.set_token(response.data['token']).catch(error => alert('Wrong Login or password'));
-        })
+        axios.post("http://127.0.0.1:8000/api-token/", data)
+            .then(response => {
+                this.set_token(response.data['token'])
+                this.setState({auth: {username: username, is_auth: true}})
+            })
+            .catch(error => {
+                alert('Wrong Login or password')
+                // this.setState({auth: {username: username, is_auth: true}})
+            });
     }
 
     load_data() {
@@ -109,7 +119,8 @@ class App extends react.Component {
         return (
             <BrowserRouter className="flex-container">
                 <div className="flex-container">
-                    <Navbar/>
+                    <Navbar auth={this.state.auth} logout={() => this.logout()}/>
+                    {/*<Navbar/>*/}
                     <Routes>
                         <Route index='/' element={<UserList users={this.state.users}/>}/>
                         <Route exact path='/login' element={<LoginForm
