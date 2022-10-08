@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'authapp',
     'todo',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
