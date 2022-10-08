@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from rest_framework import status
-from rest_framework.test import APITestCase, APISimpleTestCase, APIClient, APIRequestFactory, force_authenticate
+from rest_framework.test import APITestCase,APIClient, APIRequestFactory, CoreAPIClient
 from mixer.backend.django import mixer
 from authapp.models import User
 from todo.models import Project, Todo
@@ -67,6 +67,19 @@ class TestProjects(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         user.refresh_from_db()
         self.assertEqual(user.first_name, self.user_new.get("first_name"))
+
+# Не работает пока
+#     def test_core_api_schema(self):
+#         client = CoreAPIClient()
+#         schema = client.get('http://127.0.0.1:8000/openapi/')
+#         print(schema)
+#         params = {'username': 'MegaCorp', 'firstname': 'active'}
+#         client.action(schema, ['users', 'post'], params)
+#
+#         # Ensure that the organisation exists in the listing
+#         data = client.action(schema, ['users', 'list'])
+#         assert (len(data) == 1)
+#         assert (data == [{'username': 'MegaCorp', 'firstname': 'active'}])
 
     def tearDown(self):
         pass

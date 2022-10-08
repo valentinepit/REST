@@ -1,12 +1,16 @@
-from rest_framework import viewsets, mixins
-
-from .serializers import UserModelSerializer
+from rest_framework.generics import ListCreateAPIView
+from .serializers import UserModelSerializer, UserModelSerializerWide
 from .models import User
 
 
-class UserCustomViewSet(mixins.UpdateModelMixin, mixins.ListModelMixin,
-                        mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+class UserListViewSet(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
+
+    def get_serializer_class(self):
+        if self.request.version == "v2":
+            return UserModelSerializerWide
+        return UserModelSerializer
+
 
 
