@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from graphene_django.views import GraphQLView
 from rest_framework import permissions
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
@@ -37,7 +38,9 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
+
     path('swagger/', schema_view.with_ui('swagger')),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
 
     path('api/<str:version>/users/', UserListViewSet.as_view()),
     # path('openapi/', get_schema_view(title='Server Monitoring API', ), name='openapi-schema')

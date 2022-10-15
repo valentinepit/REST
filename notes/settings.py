@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'todo',
     'rest_framework.authtoken',
     'drf_yasg',
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -159,4 +160,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
 
+}
+
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'
 }
