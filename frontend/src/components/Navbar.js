@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 
 
 function Navbar({auth, logout}) {
-    console.log("USERNAME =", auth)
     let display_none = {"display": "none"}
     return (
         <div className="header">

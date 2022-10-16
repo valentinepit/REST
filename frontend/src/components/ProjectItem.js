@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 
-const ProjectItem = ({project}) => {
+const ProjectItem = ({project, delete_project}) => {
     return (
         <tr>
             <td>
@@ -16,6 +16,9 @@ const ProjectItem = ({project}) => {
             </td>
             <td>
                 {project.repository}
+            </td>
+            <td>
+                <button onClick={()=>delete_project(project.id)} type="button">Delete</button>
             </td>
         </tr>
     )
