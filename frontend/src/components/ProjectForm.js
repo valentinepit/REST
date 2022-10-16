@@ -16,12 +16,12 @@ class ProjectForm extends React.Component {
     }
 
     handleUsersChange(event) {
-        let users =[]
+        let users = []
         if (!event.target.selectedOptions) {
             this.setState({"users": users})
             return;
         }
-        for(let i = 0; i < event.target.selectedOptions.length; i++) {
+        for (let i = 0; i < event.target.selectedOptions.length; i++) {
             users.push((event.target.selectedOptions.item(i).value))
         }
         this.setState({"users": users})
@@ -39,25 +39,27 @@ class ProjectForm extends React.Component {
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     <div className="form-group">
                         <label htmlFor="">Name</label>
-                        <input type="text" name="name" placeholder="Name"
-                               value={this.state.name} onChange={(event) => this.handleChange(event)}/>
-                    </div>
+                        <input type="text" name="name" className="form-control" value={this.state.name}
+                               onChange={(event) => this.handleChange(event)}/>
+                    < /div>
                     <div className="form-group">
-
-                        <label htmlFor="">Users</label>
-                        <select name="users" multiple onChange={(event) => this.handleUsersChange(event)}>
+                        <label>Users</label>
+                        <select name="users" multiple onChange={(event) => this.handleUsersChange(event)}
+                                className="form-control"
+                                id="exampleFormControlSelect1">
                             {this.props.users.map((item) => <option value={item.id}>{item.firstName}</option>)}
-                        </select>>
+                        </select>
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Repository</label>
-                        <input type="url" name="repository" placeholder="repository"
-                               value={this.state.repository} onChange={(event) => this.handleChange(event)}/>
-                        <input type="submit" value="Save"/>
-                    </div>
+                        <input type="text" name="repository" className="form-control" value={this.state.repository}
+                               onChange={(event) => this.handleChange(event)}/>
+                    < /div>
+                    <button type="submit" className="btn btn-primary" value="Save">Save</button>
                 </form>
+
             </div>
-        );
+        )
     }
 }
 
