@@ -3,7 +3,6 @@ import React from 'react'
 class ProjectForm extends React.Component {
     constructor(props) {
         super(props)
-        console.log("props", this.props.users)
         this.state = {name: '', users: [], repository: ''}
     }
 

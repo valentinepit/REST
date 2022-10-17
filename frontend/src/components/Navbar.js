@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from '../notes_logo.svg';
 import {Link} from 'react-router-dom';
+import SearchBox from "./Search.js"
 
 
-function Navbar({auth, logout}) {
-    let display_none = {"display": "none"}
+function Navbar({auth, logout, projects}){
     return (
         <div className="header">
             <nav className="navbar navbar-expand-lg bg-dark">
@@ -37,13 +37,9 @@ function Navbar({auth, logout}) {
                                           to="/login">{auth.username}</Link> :
                                     <Link className="nav-link text-white ms-5" to='/login'>LOGIN</Link>
                                 }
-                            </li>
-                        </ul>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search"
-                                   aria-label="Search"/>
-                            <button className="btn btn-outline-primary" type="submit">Search</button>
-                        </form>
+                                </li>
+                            </ul>
+                        <SearchBox projects={projects}/>
                     </div>
                 </div>
             </nav>

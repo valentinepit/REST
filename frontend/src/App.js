@@ -84,6 +84,10 @@ class App extends react.Component {
 
     }
 
+    filter_project(){
+        console.log("HERE")
+    }
+
     logout() {
         this.set_token("")
         this.setState({"users": []})
@@ -173,8 +177,7 @@ class App extends react.Component {
         return (
             <BrowserRouter className="flex-container">
                 <div className="flex-container">
-                    <Navbar auth={this.state.auth} logout={() => this.logout()}/>
-                    {/*<Navbar/>*/}
+                    <Navbar auth={this.state.auth} projects={this.state.projects} logout={() => this.logout()}/>
                     <Routes>
                         <Route index='/' element={<UserList users={this.state.users}/>}/>
                         <Route exact path='/login' element={<LoginForm
