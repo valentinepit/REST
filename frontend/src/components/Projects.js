@@ -1,7 +1,7 @@
 import React from 'react'
 import ProjectItem from "./ProjectItem";
 
-const ProjectList = ({projects}) => {
+const ProjectList = ({projects, delete_project}) => {
     return (
         <div className="content">
             <table>
@@ -9,7 +9,7 @@ const ProjectList = ({projects}) => {
                 <th>Name </th>
                 <th>Users</th>
                 <th>Repository</th>
-                {projects.map((item) => <ProjectItem project={item}/>)}
+                {projects.map((item) => <ProjectItem project={item} delete_project={delete_project}/>)}
             </table>
         </div>
     )
