@@ -25,14 +25,14 @@ SECRET_KEY = 'django-insecure-p(ve5ry63@#9$ugnex=x_5^7_)8dpwmne=5+1yivpx%m3xen@_
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-#
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:8000",
-#     "http://127.0.0.1:3000",
-#     "http://0.0.0.0:80",
-#
-# ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:3000",
+    "http://0.0.0.0:80",
+
+]
 CORS_ALLOWED_ALL_ORIGINS = True
 # Application definition
 
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'notes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'notes',
         'PASSWORD': 'django_1',
         'USER': 'django',
